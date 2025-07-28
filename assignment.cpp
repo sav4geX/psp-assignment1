@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
 #include <iomanip>
 #include <vector>
@@ -11,14 +11,23 @@ int main() {
 	string rice, noodles, dessert, drink;
 	vector<string> orders;
 	step0:
-	cout << " {~.~}" << endl;
-	cout << "<(___)>" << endl;
-	cout << "Welcome to 8 ringgits restaurant" << endl;
+    cout << "                                                                      {~.~}" << endl;
+	cout << "                                                                     <(___)>" << endl;
+    cout << " *******   ****     ****  ****        *******   ********  ******** **********     **     **     ** *******       **     ****     ** **********" << endl;
+    cout << "/**////** /**/**   **/** */// *      /**////** /**/////  **////// /////**///     ****   /**    /**/**////**     ****   /**/**   /**/////**/// " << endl;
+    cout << "/**   /** /**//** ** /**/*   /*      /**   /** /**      /**           /**       **//**  /**    /**/**   /**    **//**  /**//**  /**    /**    " << endl;
+    cout << "/*******  /** //***  /**/ ****       /*******  /******* /*********    /**      **  //** /**    /**/*******    **  //** /** //** /**    /**    " << endl;
+    cout << "/**///**  /**  //*   /** */// *      /**///**  /**////  ////////**    /**     **********/**    /**/**///**   **********/**  //**/**    /**    " << endl;
+    cout << "/**  //** /**   /    /**/*   /*      /**  //** /**             /**    /**    /**//////**/**    /**/**  //** /**//////**/**   //****    /**    " << endl;
+    cout << "/**   //**/**        /**/ ****       /**   //**/******** ********     /**    /**     /**//******* /**   //**/**     /**/**    //***    /**    " << endl;
+    cout << "//     // //         //  ////        //     // //////// ////////      //     //      //  ///////  //     // //      // //      ///     //     " << endl;
+	cout << "Welcome to RM8 restaurant" << endl;
 	cout << "Choose the option you want" << endl;
 	cout << "1. Menu" << endl;
 	cout << "2. Background of this restaurant" << endl;
 	cout << "Please insert by number thank you" << endl;
-step1:	
+	
+	step1:	
 	cin >> num1;
 	step2:
 	if (num1 == 1) {
@@ -30,6 +39,7 @@ step1:
 		cout << "4. drink" << endl;
 		cout << "Insert the number you want to proceed to details menu." << endl;
 		cin >> menu1;
+		cin.ignore(); // Clear the newline character from the input buffer
 		if (menu1 == 1) {
 			cout << "1. fried rice" << endl;
 			cout << "2. rice 2" << endl;
@@ -40,15 +50,16 @@ step1:
 			cout << "7. rice 7" << endl;
 			cout << "8. rice 8" << endl;
 			cout << "Insert the name of the rice you want." << endl;
-			cout << "Insert (done) to end placing order in rice" << endl;
+			cout << "Insert (done) to end placing order in rice." << endl;
 			while (true) {
 				getline(cin, rice);
 				if (rice == "done") {
 					break;
+				} else if (rice != "fried rice" && rice != "rice 2" && rice != "rice 3" && rice != "rice 4" && rice != "rice 5" && rice != "rice 6" && rice != "rice 7" && rice != "rice 8" && !rice.empty()) {
+					cout << "Invalid rice option. Please try again." << endl;
+					continue;
 				}
-				if (!rice.empty()) {
-					orders.push_back(rice);
-				}
+				orders.push_back(rice);
 			}
 		}
 		else if (menu1 == 2) {
@@ -108,9 +119,6 @@ step1:
 				getline(cin, drink);
 				if (drink == "done") {
 					break;
-				}
-				if (!drink.empty()) {
-					orders.push_back(drink);
 				}
 			}
 		}
